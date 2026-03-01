@@ -18,6 +18,11 @@ import {
   BLOG_POSTS,
   EMAIL,
   SOCIAL_LINKS,
+  MEDIA_PUBLICATIONS,
+  SPEAKING_ENGAGEMENTS,
+  JUDGING_OPPORTUNITIES,
+  BOOKS,
+  NEWS_PUBLICATIONS,
 } from './data'
 
 const VARIANTS_CONTAINER = {
@@ -44,6 +49,9 @@ type ProjectVideoProps = {
 }
 
 function ProjectVideo({ src }: ProjectVideoProps) {
+  // Check if src is an image or video based on file extension
+  const isImage = src.endsWith('.png') || src.endsWith('.jpg') || src.endsWith('.jpeg') || src.endsWith('.webp')
+  
   return (
     <MorphingDialog
       transition={{
@@ -53,23 +61,39 @@ function ProjectVideo({ src }: ProjectVideoProps) {
       }}
     >
       <MorphingDialogTrigger>
-        <video
-          src={src}
-          autoPlay
-          loop
-          muted
-          className="aspect-video w-full cursor-zoom-in rounded-xl"
-        />
-      </MorphingDialogTrigger>
-      <MorphingDialogContainer>
-        <MorphingDialogContent className="relative aspect-video rounded-2xl bg-zinc-50 p-1 ring-1 ring-zinc-200/50 ring-inset dark:bg-zinc-950 dark:ring-zinc-800/50">
+        {isImage ? (
+          <img
+            src={src}
+            alt="Project screenshot"
+            className="aspect-video w-full cursor-zoom-in rounded-xl object-cover"
+          />
+        ) : (
           <video
             src={src}
             autoPlay
             loop
             muted
-            className="aspect-video h-[50vh] w-full rounded-xl md:h-[70vh]"
+            className="aspect-video w-full cursor-zoom-in rounded-xl"
           />
+        )}
+      </MorphingDialogTrigger>
+      <MorphingDialogContainer>
+        <MorphingDialogContent className="relative aspect-video rounded-2xl bg-zinc-50 p-1 ring-1 ring-zinc-200/50 ring-inset dark:bg-zinc-900 dark:ring-zinc-700">
+          {isImage ? (
+            <img
+              src={src}
+              alt="Project screenshot"
+              className="aspect-video h-[50vh] w-full rounded-xl object-contain md:h-[70vh]"
+            />
+          ) : (
+            <video
+              src={src}
+              autoPlay
+              loop
+              muted
+              className="aspect-video h-[50vh] w-full rounded-xl md:h-[70vh]"
+            />
+          )}
         </MorphingDialogContent>
         <MorphingDialogClose
           className="fixed top-6 right-6 h-fit w-fit rounded-full bg-white p-1"
@@ -126,19 +150,30 @@ function MagneticSocialLink({
 export default function Personal() {
   return (
     <motion.main
-      className="space-y-24"
+      className="space-y-16"
       variants={VARIANTS_CONTAINER}
       initial="hidden"
       animate="visible"
     >
+
       <motion.section
         variants={VARIANTS_SECTION}
         transition={TRANSITION_SECTION}
       >
         <div className="flex-1">
+          <p className="text-lg font-medium text-zinc-900 dark:text-zinc-100 mb-3">
+            Bio
+          </p>
+          <p className="text-zinc-600 dark:text-zinc-400 mb-4">
+            Visionary founder and AI thought leader architecting the future of enterprise LLM platforms. 
+            Currently spearheading LinkedIn's revolutionary Agent Platform—the industry's most advanced 
+            infrastructure for long-running, tool-using AI agents with memory and orchestration capabilities.
+          </p>
           <p className="text-zinc-600 dark:text-zinc-400">
-            Focused on creating intuitive and performant web experiences.
-            Bridging the gap between design and development.
+            As Founder & CEO of Fulloop AI, built groundbreaking LLM-powered technical interview agents 
+            that are transforming how companies evaluate talent. Former engineering leader across Meta, 
+            Snap, and Uber, with a proven track record of scaling teams and delivering AI innovations 
+            that impact millions of users globally.
           </p>
         </div>
       </motion.section>
@@ -147,28 +182,24 @@ export default function Personal() {
         variants={VARIANTS_SECTION}
         transition={TRANSITION_SECTION}
       >
-        <h3 className="mb-5 text-lg font-medium">Selected Projects</h3>
-        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
-          {PROJECTS.map((project) => (
-            <div key={project.name} className="space-y-2">
-              <div className="relative rounded-2xl bg-zinc-50/40 p-1 ring-1 ring-zinc-200/50 ring-inset dark:bg-zinc-950/40 dark:ring-zinc-800/50">
-                <ProjectVideo src={project.video} />
-              </div>
-              <div className="px-1">
-                <a
-                  className="font-base group relative inline-block font-[450] text-zinc-900 dark:text-zinc-50"
-                  href={project.link}
-                  target="_blank"
-                >
-                  {project.name}
-                  <span className="absolute bottom-0.5 left-0 block h-[1px] w-full max-w-0 bg-zinc-900 dark:bg-zinc-50 transition-all duration-200 group-hover:max-w-full"></span>
-                </a>
-                <p className="text-base text-zinc-600 dark:text-zinc-400">
-                  {project.description}
-                </p>
-              </div>
-            </div>
-          ))}
+        <h3 className="mb-5 text-lg font-medium">Key Achievements</h3>
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 mb-12">
+          <div className="rounded-lg bg-gradient-to-br from-blue-50 to-indigo-50 p-4 dark:from-blue-950/20 dark:to-indigo-950/20">
+            <h4 className="font-medium text-zinc-900 dark:text-zinc-100">LinkedIn Agent Platform</h4>
+            <p className="text-sm text-zinc-600 dark:text-zinc-400">Leading enterprise AI infrastructure powering millions of agent interactions</p>
+          </div>
+          <div className="rounded-lg bg-gradient-to-br from-emerald-50 to-teal-50 p-4 dark:from-emerald-950/20 dark:to-teal-950/20">
+            <h4 className="font-medium text-zinc-900 dark:text-zinc-100">Fulloop AI Founder</h4>
+            <p className="text-sm text-zinc-600 dark:text-zinc-400">Secured eBay as design partner, raised funding, built 7-person team</p>
+          </div>
+          <div className="rounded-lg bg-gradient-to-br from-purple-50 to-pink-50 p-4 dark:from-purple-950/20 dark:to-pink-950/20">
+            <h4 className="font-medium text-zinc-900 dark:text-zinc-100">Big Tech Leadership</h4>
+            <p className="text-sm text-zinc-600 dark:text-zinc-400">Staff Engineer at Snap, EM at Uber, Engineer at Meta</p>
+          </div>
+          <div className="rounded-lg bg-gradient-to-br from-amber-50 to-orange-50 p-4 dark:from-amber-950/20 dark:to-orange-950/20">
+            <h4 className="font-medium text-zinc-900 dark:text-zinc-100">Education Excellence</h4>
+            <p className="text-sm text-zinc-600 dark:text-zinc-400">Carnegie Mellon MS Data Science, Mumbai University CS</p>
+          </div>
         </div>
       </motion.section>
 
@@ -210,6 +241,7 @@ export default function Personal() {
         </div>
       </motion.section>
 
+
       <motion.section
         variants={VARIANTS_SECTION}
         transition={TRANSITION_SECTION}
@@ -226,10 +258,12 @@ export default function Personal() {
             }}
           >
             {BLOG_POSTS.map((post) => (
-              <Link
+              <a
                 key={post.uid}
                 className="-mx-3 rounded-xl px-3 py-3"
                 href={post.link}
+                target="_blank"
+                rel="noopener noreferrer"
                 data-id={post.uid}
               >
                 <div className="flex flex-col space-y-1">
@@ -240,9 +274,206 @@ export default function Personal() {
                     {post.description}
                   </p>
                 </div>
-              </Link>
+              </a>
             ))}
           </AnimatedBackground>
+        </div>
+      </motion.section>
+
+      <motion.section
+        variants={VARIANTS_SECTION}
+        transition={TRANSITION_SECTION}
+      >
+        <h3 className="mb-5 text-lg font-medium">Media & Publications</h3>
+        <div className="flex flex-col space-y-2">
+          {MEDIA_PUBLICATIONS.map((publication) => (
+            <a
+              className="relative overflow-hidden rounded-2xl bg-zinc-300/30 p-[1px] dark:bg-zinc-600/30"
+              href={publication.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              key={publication.id}
+            >
+              <Spotlight
+                className="from-zinc-900 via-zinc-800 to-zinc-700 blur-2xl dark:from-zinc-100 dark:via-zinc-200 dark:to-zinc-50"
+                size={64}
+              />
+              <div className="relative h-full w-full rounded-[15px] bg-white p-4 dark:bg-zinc-950">
+                <div className="relative flex w-full flex-col">
+                  <h4 className="font-normal dark:text-zinc-100">
+                    {publication.title}
+                  </h4>
+                  <p className="text-zinc-500 dark:text-zinc-400">
+                    {publication.publication} • {publication.date}
+                  </p>
+                </div>
+              </div>
+            </a>
+          ))}
+        </div>
+      </motion.section>
+
+      <motion.section
+        variants={VARIANTS_SECTION}
+        transition={TRANSITION_SECTION}
+      >
+        <h3 className="mb-5 text-lg font-medium">Speaking & Conferences</h3>
+        <div className="flex flex-col space-y-2">
+          {SPEAKING_ENGAGEMENTS.map((engagement) => (
+            <a
+              className="relative overflow-hidden rounded-2xl bg-zinc-300/30 p-[1px] dark:bg-zinc-600/30"
+              href={engagement.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              key={engagement.id}
+            >
+              <Spotlight
+                className="from-zinc-900 via-zinc-800 to-zinc-700 blur-2xl dark:from-zinc-100 dark:via-zinc-200 dark:to-zinc-50"
+                size={64}
+              />
+              <div className="relative h-full w-full rounded-[15px] bg-white p-4 dark:bg-zinc-950">
+                <div className="relative flex w-full flex-col">
+                  <h4 className="font-normal dark:text-zinc-100">
+                    {engagement.title}
+                  </h4>
+                  <p className="text-zinc-500 dark:text-zinc-400">
+                    {engagement.event} • {engagement.location} • {engagement.date}
+                  </p>
+                </div>
+              </div>
+            </a>
+          ))}
+        </div>
+      </motion.section>
+
+      <motion.section
+        variants={VARIANTS_SECTION}
+        transition={TRANSITION_SECTION}
+      >
+        <h3 className="mb-5 text-lg font-medium">Judging & Advisory</h3>
+        <div className="flex flex-col space-y-2">
+          {JUDGING_OPPORTUNITIES.map((opportunity) => (
+            <a
+              className="relative overflow-hidden rounded-2xl bg-zinc-300/30 p-[1px] dark:bg-zinc-600/30"
+              href={opportunity.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              key={opportunity.id}
+            >
+              <Spotlight
+                className="from-zinc-900 via-zinc-800 to-zinc-700 blur-2xl dark:from-zinc-100 dark:via-zinc-200 dark:to-zinc-50"
+                size={64}
+              />
+              <div className="relative h-full w-full rounded-[15px] bg-white p-4 dark:bg-zinc-950">
+                <div className="relative flex w-full flex-col">
+                  <h4 className="font-normal dark:text-zinc-100">
+                    {opportunity.event}
+                  </h4>
+                  <p className="text-zinc-500 dark:text-zinc-400">
+                    {opportunity.role} at {opportunity.organization} • {opportunity.date}
+                  </p>
+                </div>
+              </div>
+            </a>
+          ))}
+        </div>
+      </motion.section>
+
+      <motion.section
+        variants={VARIANTS_SECTION}
+        transition={TRANSITION_SECTION}
+      >
+        <h3 className="mb-5 text-lg font-medium">Books</h3>
+        <div className="flex flex-col space-y-2">
+          {BOOKS.map((book) => (
+            <a
+              className="relative overflow-hidden rounded-2xl bg-zinc-300/30 p-[1px] dark:bg-zinc-600/30"
+              href={book.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              key={book.id}
+            >
+              <Spotlight
+                className="from-zinc-900 via-zinc-800 to-zinc-700 blur-2xl dark:from-zinc-100 dark:via-zinc-200 dark:to-zinc-50"
+                size={64}
+              />
+              <div className="relative h-full w-full rounded-[15px] bg-white p-4 dark:bg-zinc-950">
+                <div className="relative flex w-full flex-col space-y-1">
+                  <h4 className="font-normal dark:text-zinc-100">
+                    {book.title}
+                  </h4>
+                  <p className="text-zinc-500 dark:text-zinc-400">
+                    {book.publisher} • {book.date}
+                  </p>
+                  <p className="text-sm text-zinc-600 dark:text-zinc-500">
+                    {book.description}
+                  </p>
+                </div>
+              </div>
+            </a>
+          ))}
+        </div>
+      </motion.section>
+
+      <motion.section
+        variants={VARIANTS_SECTION}
+        transition={TRANSITION_SECTION}
+      >
+        <h3 className="mb-5 text-lg font-medium">News & Press</h3>
+        <div className="flex flex-col space-y-2">
+          {NEWS_PUBLICATIONS.map((news) => (
+            <a
+              className="relative overflow-hidden rounded-2xl bg-zinc-300/30 p-[1px] dark:bg-zinc-600/30"
+              href={news.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              key={news.id}
+            >
+              <Spotlight
+                className="from-zinc-900 via-zinc-800 to-zinc-700 blur-2xl dark:from-zinc-100 dark:via-zinc-200 dark:to-zinc-50"
+                size={64}
+              />
+              <div className="relative h-full w-full rounded-[15px] bg-white p-4 dark:bg-zinc-950">
+                <div className="relative flex w-full flex-col">
+                  <h4 className="font-normal dark:text-zinc-100">
+                    {news.title}
+                  </h4>
+                  <p className="text-zinc-500 dark:text-zinc-400">
+                    {news.publication} • {news.type} • {news.date}
+                  </p>
+                </div>
+              </div>
+            </a>
+          ))}
+        </div>
+      </motion.section>
+
+      <motion.section
+        variants={VARIANTS_SECTION}
+        transition={TRANSITION_SECTION}
+      >
+        <h3 className="mb-5 text-lg font-medium text-zinc-900 dark:text-zinc-100">Selected Projects</h3>
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
+          {PROJECTS.map((project) => (
+            <div key={project.name} className="space-y-2">
+              <div className="relative rounded-2xl bg-zinc-50/40 p-1 ring-1 ring-zinc-200/50 ring-inset dark:bg-zinc-800/60 dark:ring-zinc-700">
+                <ProjectVideo src={project.video} />
+              </div>
+              <div className="px-1">
+                <a
+                  className="font-base group relative inline-block font-[450] text-zinc-900 dark:text-zinc-50"
+                  href={project.link}
+                  target="_blank"
+                >
+                  {project.name}
+                  <span className="absolute bottom-0.5 left-0 block h-[1px] w-full max-w-0 bg-zinc-900 dark:bg-zinc-50 transition-all duration-200 group-hover:max-w-full"></span>
+                </a>
+                <p className="text-base text-zinc-600 dark:text-zinc-400">
+                  {project.description}
+                </p>
+              </div>
+            </div>
+          ))}
         </div>
       </motion.section>
 

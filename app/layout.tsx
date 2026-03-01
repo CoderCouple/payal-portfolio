@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from 'next/font/google'
 import './globals.css'
 import { Header } from './header'
 import { Footer } from './footer'
+import { Cover } from './cover'
 import { ThemeProvider } from 'next-themes'
 
 export const viewport: Viewport = {
@@ -12,15 +13,15 @@ export const viewport: Viewport = {
 }
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://nim-fawn.vercel.app/'),
+  metadataBase: new URL('https://payal-portfolio.vercel.app/'),
   alternates: {
     canonical: '/'
   },
   title: {
-    default: 'Nim - Personal website template',
-    template: '%s | Nim'
+    default: 'Payal Fofadiya - AI Thought Leader & Founder',
+    template: '%s | Payal Fofadiya'
   },
-  description:  'Nim is a free and open-source personal website template built with Next.js 15, React 19 and Motion-Primitives.',
+  description:  'Visionary AI founder and thought leader architecting enterprise LLM platforms. Leading LinkedIn\'s Agent Platform, Founder & CEO of Fulloop AI, former engineering leader at Meta, Snap, and Uber.',
 };
 
 const geist = Geist({
@@ -48,9 +49,12 @@ export default function RootLayout({
           attribute="class"
           storageKey="theme"
           defaultTheme="system"
+          disableTransitionOnChange
+          enableColorScheme={false}
         >
           <div className="flex min-h-screen w-full flex-col font-[family-name:var(--font-inter-tight)]">
-            <div className="relative mx-auto w-full max-w-screen-sm flex-1 px-4 pt-20">
+            <Cover />
+            <div className="relative mx-auto w-full max-w-screen-sm flex-1 px-4 pt-12">
               <Header />
               {children}
               <Footer />
