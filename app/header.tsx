@@ -1,11 +1,111 @@
 'use client'
 import { TextEffect } from '@/components/ui/text-effect'
 import Link from 'next/link'
+import { useTheme } from 'next-themes'
+import { SunIcon, MoonIcon } from 'lucide-react'
+import { useEffect, useState } from 'react'
+import { usePathname } from 'next/navigation'
 
 export function Header() {
+  const [mounted, setMounted] = useState(false)
+  const { theme, setTheme } = useTheme()
+  const pathname = usePathname()
+  const isHomePage = pathname === '/'
+
+  useEffect(() => {
+    setMounted(true)
+  }, [])
+
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId)
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' })
+    }
+  }
+
   return (
-    <header className="mb-8">
-      {/* Header is now minimal since name/title moved to cover */}
-    </header>
+    <>
+      <header className="sticky top-0 z-50 bg-white/80 backdrop-blur-sm dark:bg-zinc-950/80 border-b border-zinc-100 dark:border-zinc-800">
+        <nav className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-between h-16">
+            {/* Logo/Name */}
+            <Link href="/" className="flex items-center">
+              <span className="text-xl font-bold text-zinc-900 dark:text-zinc-100">
+                Payal Fofadiya
+              </span>
+            </Link>
+
+            {/* Navigation Links */}
+            <div className="flex items-center space-x-8">
+              <Link
+                href="/"
+                className="text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100 transition-colors"
+              >
+                Home
+              </Link>
+              <Link
+                href="/contact"
+                className="text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100 transition-colors"
+              >
+                Contact
+              </Link>
+            </div>
+
+            {/* Theme Toggle */}
+            <div className="flex items-center">
+              {mounted && (
+                <button
+                  onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+                  className="p-2 rounded-md text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100 transition-colors"
+                  aria-label="Toggle theme"
+                >
+                  {theme === 'dark' ? (
+                    <SunIcon className="h-5 w-5" />
+                  ) : (
+                    <MoonIcon className="h-5 w-5" />
+                  )}
+                </button>
+              )}
+            </div>
+          </div>
+        </nav>
+      </header>
+
+      {/* Hero Section with Text - Only show on home page */}
+      {isHomePage && (
+        <section className="py-16 text-center">
+          <div className="mb-4 flex items-center justify-center">
+            <div className="relative h-32 w-32 overflow-hidden rounded-full ring-2 ring-zinc-200 dark:ring-zinc-700">
+              <img
+                src="/payal-head-shot.png"
+                alt="Payal Fofadiya"
+                className="h-full w-full object-cover"
+              />
+            </div>
+          </div>
+          <h1 className="mb-4 text-4xl font-bold text-zinc-900 dark:text-zinc-100 sm:text-5xl">
+            Payal Fofadiya
+          </h1>
+          <p className="mb-6 text-xl text-zinc-600 dark:text-zinc-400 font-medium">
+            Ex-Founder, Pioneering AI Agent Systems at Enterprise Scale
+          </p>
+          <div className="mb-8 flex flex-wrap items-center justify-center gap-2">
+            <span className="rounded-full bg-emerald-100 px-4 py-2 text-sm font-medium text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-300">
+              🚀 AI Pioneer
+            </span>
+            <span className="rounded-full bg-blue-100 px-4 py-2 text-sm font-medium text-blue-700 dark:bg-blue-900/30 dark:text-blue-300">
+              💡 Founder
+            </span>
+            <span className="rounded-full bg-purple-100 px-4 py-2 text-sm font-medium text-purple-700 dark:bg-purple-900/30 dark:text-purple-300">
+              🏗️ Platform Builder
+            </span>
+          </div>
+          <p className="mx-auto max-w-4xl text-xl text-zinc-600 dark:text-zinc-400 leading-relaxed">
+            From enterprise LLM platforms at LinkedIn to revolutionary interview agents at Fulloop AI—
+            building the infrastructure that powers tomorrow's intelligent systems.
+          </p>
+        </section>
+      )}
+    </>
   )
 }

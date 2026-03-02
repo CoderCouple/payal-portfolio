@@ -13,6 +13,7 @@ type WorkExperience = {
   end: string
   link: string
   id: string
+  logo?: string
 }
 
 type BlogPost = {
@@ -42,16 +43,27 @@ type SpeakingEngagement = {
   location: string
   link: string
   id: string
+  slug: string
+  description: string
+  topics: string[]
+  audience: string
+  organizer: string
+  organizerDescription: string
+  conferenceDescription: string
+  image?: string
+  videoUrl?: string
+  slidesUrl?: string
+  agendaUrl?: string
+  eventUrl?: string
+  images?: {
+    src: string
+    alt: string
+    caption?: string
+    type?: 'image' | 'video'
+  }[]
 }
 
-type JudgingOpportunity = {
-  event: string
-  role: string
-  date: string
-  organization: string
-  link: string
-  id: string
-}
+import { JUDGING_DATA, type JudgingOpportunity } from './judging/judging-data'
 
 type Book = {
   title: string
@@ -97,6 +109,7 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
     end: 'Present',
     link: 'https://linkedin.com',
     id: 'work1',
+    logo: '/logos/linkedIn-logo.png',
   },
   {
     company: 'Fulloop AI',
@@ -105,6 +118,7 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
     end: 'Present',
     link: 'https://fulloop.ai',
     id: 'work2',
+    logo: '/logos/fulloop-logo.png',
   },
   {
     company: 'Uber',
@@ -113,6 +127,7 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
     end: 'Nov 2023',
     link: 'https://uber.com',
     id: 'work3',
+    logo: '/logos/uber-logo.png',
   },
   {
     company: 'Snap Inc.',
@@ -121,6 +136,7 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
     end: 'Dec 2022',
     link: 'https://snap.com',
     id: 'work4',
+    logo: '/logos/snap-logo.png',
   },
   {
     company: 'Meta (Facebook)',
@@ -129,6 +145,7 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
     end: 'Mar 2019',
     link: 'https://meta.com',
     id: 'work5',
+    logo: '/logos/meta-logo.png',
   },
 ]
 
@@ -175,41 +192,62 @@ export const MEDIA_PUBLICATIONS: MediaPublication[] = [
 
 export const SPEAKING_ENGAGEMENTS: SpeakingEngagement[] = [
   {
-    title: 'Building Scalable AI Agent Systems',
-    event: 'AI Summit 2024',
-    date: 'June 2024',
+    title: 'Leadership in AI-First Era',
+    event: 'QonfX San Francisco 2025',
+    date: 'March 20, 2026',
     location: 'San Francisco, CA',
-    link: '#',
-    id: 'speak-1',
+    link: 'https://luma.com/qonfx-sf',
+    id: 'speak-3',
+    slug: 'qonfx-sf-2025',
+    description: 'Expert panel discussion on leadership strategies and challenges in the AI-first era, exploring how leaders can navigate the transformation of organizations, teams, and processes in an AI-driven world.',
+    topics: ['AI Leadership', 'Digital Transformation', 'Organizational Change', 'AI Strategy', 'Future of Work'],
+    audience: 'Engineering Leaders, QA Directors, CTOs, VP Engineering',
+    organizer: 'The Test Tribe',
+    organizerDescription: 'The world\'s largest Software Testing/QA community with members in 120+ countries and 44 global chapters, dedicated to advancing quality engineering practices.',
+    conferenceDescription: 'QonfX is an exclusive, invite-only conference that brings together top Engineering, QA, and Business Leaders to discuss the present and future of software testing and quality assurance.',
+    image: '/speaking-qonfx-sf-2025.jpg',
+    slidesUrl: 'https://drive.google.com/file/d/1TdNkgpvzBiJLNiHmUZ4sIiEGFnM9oGKJ/view',
+    agendaUrl: 'https://drive.google.com/file/d/1IZWTJotw46cGYSwChoWttTFgZdCwjyS1/view',
+    eventUrl: 'https://luma.com/qonfx-sf',
+    images: [
+      {
+        src: '/speaking-qonfx-sf-2025-1.jpg',
+        alt: 'Payal speaking at QonfX San Francisco panel discussion',
+        caption: 'Leadership in AI-First Era panel discussion at QonfX SF 2025'
+      },
+      {
+        src: '/speaking-qonfx-sf-2025-2.jpg',
+        alt: 'QonfX San Francisco conference venue and audience',
+        caption: 'QonfX San Francisco exclusive conference venue'
+      },
+      {
+        src: '/speaking-qonfx-sf-2025-3.jpg',
+        alt: 'Expert panel with industry leaders at QonfX',
+        caption: 'Expert panel featuring top QA and Engineering leaders'
+      }
+    ]
   },
   {
-    title: 'The Future of Technical Interviews',
-    event: 'DevOps Conference',
-    date: 'April 2024',
-    location: 'New York, NY',
-    link: '#',
-    id: 'speak-2',
+    title: 'AI Agents in Enterprise: From POC to Production Scale',
+    event: 'TechEx North America - AI & Big Data Expo',
+    date: 'June 4-5, 2025',
+    location: 'Santa Clara, CA',
+    link: '/speaking/techex-north-america-2025',
+    id: 'speak-4',
+    slug: 'techex-north-america-2025',
+    description: 'Comprehensive session on scaling AI agent systems in enterprise environments, covering architecture patterns, deployment strategies, and lessons learned from production implementations.',
+    topics: ['AI Agents', 'Enterprise Scale', 'Production Deployment', 'Big Data', 'ML Operations'],
+    audience: 'AI Engineers, Data Scientists, Enterprise Architects, CTOs',
+    organizer: 'TechEx Events',
+    organizerDescription: 'Leading technology conference organizer bringing together 8,000+ innovators, 250+ speakers and 200+ exhibitors across seven co-located events focused on emerging technologies.',
+    conferenceDescription: 'TechEx North America is the premier technology event in Silicon Valley, featuring AI & Big Data, Cyber Security & Cloud, IoT, Digital Transformation, Edge Computing, Intelligent Automation and Data Center technologies.',
+    image: '/speaking-techex-na-2025.jpg',
+    slidesUrl: 'https://drive.google.com/file/d/1IZWTJotw46cGYSwChoWttTFgZdCwjyS1/view',
+    agendaUrl: 'https://techexevent.com/northamerica/',
   },
 ]
 
-export const JUDGING_OPPORTUNITIES: JudgingOpportunity[] = [
-  {
-    event: 'Y Combinator Demo Day',
-    role: 'Technical Judge',
-    date: 'Fall 2024',
-    organization: 'Y Combinator',
-    link: '#',
-    id: 'judge-1',
-  },
-  {
-    event: 'TechCrunch Disrupt Hackathon',
-    role: 'AI/ML Track Judge',
-    date: 'September 2024',
-    organization: 'TechCrunch',
-    link: '#',
-    id: 'judge-2',
-  },
-]
+export const JUDGING_OPPORTUNITIES: JudgingOpportunity[] = JUDGING_DATA
 
 export const BOOKS: Book[] = [
   {

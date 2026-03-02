@@ -204,6 +204,7 @@ export default function Personal() {
       </motion.section>
 
       <motion.section
+        id="work"
         variants={VARIANTS_SECTION}
         transition={TRANSITION_SECTION}
       >
@@ -222,18 +223,34 @@ export default function Personal() {
                 size={64}
               />
               <div className="relative h-full w-full rounded-[15px] bg-white p-4 dark:bg-zinc-950">
-                <div className="relative flex w-full flex-row justify-between">
-                  <div>
-                    <h4 className="font-normal dark:text-zinc-100">
-                      {job.title}
-                    </h4>
-                    <p className="text-zinc-500 dark:text-zinc-400">
-                      {job.company}
-                    </p>
+                <div className="relative flex w-full flex-row items-center gap-4">
+                  {job.logo && (
+                    <div className="flex-shrink-0">
+                      <img
+                        src={job.logo}
+                        alt={`${job.company} logo`}
+                        className="h-12 w-12 object-contain"
+                        onError={(e) => {
+                          e.currentTarget.src = `data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='48' viewBox='0 0 48 48'%3E%3Crect width='48' height='48' fill='%23f3f4f6' rx='8'/%3E%3Ctext x='24' y='28' font-family='Arial' font-size='14' fill='%236b7280' text-anchor='middle'%3E${job.company.charAt(0)}%3C/text%3E%3C/svg%3E`
+                        }}
+                      />
+                    </div>
+                  )}
+                  <div className="flex-1 min-w-0">
+                    <div className="flex justify-between items-start">
+                      <div>
+                        <h4 className="font-normal dark:text-zinc-100">
+                          {job.title}
+                        </h4>
+                        <p className="text-zinc-500 dark:text-zinc-400">
+                          {job.company}
+                        </p>
+                      </div>
+                      <p className="text-zinc-600 dark:text-zinc-400 text-sm whitespace-nowrap ml-4">
+                        {job.start} - {job.end}
+                      </p>
+                    </div>
                   </div>
-                  <p className="text-zinc-600 dark:text-zinc-400">
-                    {job.start} - {job.end}
-                  </p>
                 </div>
               </div>
             </a>
@@ -321,11 +338,11 @@ export default function Personal() {
         <div className="flex flex-col space-y-2">
           {SPEAKING_ENGAGEMENTS.map((engagement) => (
             <a
-              className="relative overflow-hidden rounded-2xl bg-zinc-300/30 p-[1px] dark:bg-zinc-600/30"
-              href={engagement.link}
+              href={`/speaking/${engagement.slug}`}
               target="_blank"
               rel="noopener noreferrer"
               key={engagement.id}
+              className="relative overflow-hidden rounded-2xl bg-zinc-300/30 p-[1px] dark:bg-zinc-600/30"
             >
               <Spotlight
                 className="from-zinc-900 via-zinc-800 to-zinc-700 blur-2xl dark:from-zinc-100 dark:via-zinc-200 dark:to-zinc-50"
@@ -354,11 +371,11 @@ export default function Personal() {
         <div className="flex flex-col space-y-2">
           {JUDGING_OPPORTUNITIES.map((opportunity) => (
             <a
-              className="relative overflow-hidden rounded-2xl bg-zinc-300/30 p-[1px] dark:bg-zinc-600/30"
-              href={opportunity.link}
+              href={`/judging/${opportunity.slug}`}
               target="_blank"
               rel="noopener noreferrer"
               key={opportunity.id}
+              className="relative overflow-hidden rounded-2xl bg-zinc-300/30 p-[1px] dark:bg-zinc-600/30"
             >
               <Spotlight
                 className="from-zinc-900 via-zinc-800 to-zinc-700 blur-2xl dark:from-zinc-100 dark:via-zinc-200 dark:to-zinc-50"
@@ -452,7 +469,7 @@ export default function Personal() {
         variants={VARIANTS_SECTION}
         transition={TRANSITION_SECTION}
       >
-        <h3 className="mb-5 text-lg font-medium text-zinc-900 dark:text-zinc-100">Selected Projects</h3>
+        <h3 className="mb-5 text-lg font-medium text-zinc-900 dark:text-zinc-100">Notable Projects</h3>
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
           {PROJECTS.map((project) => (
             <div key={project.name} className="space-y-2">
