@@ -56,9 +56,10 @@ export default function ContactPage() {
       // EmailJS configuration - you'll need to set these up in EmailJS dashboard
       const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || 'service_default'
       const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || 'template_default'
+      const autoReplyTemplateId = process.env.NEXT_PUBLIC_EMAILJS_AUTOREPLY_TEMPLATE_ID || templateId
       const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || 'your_public_key'
 
-      // Prepare template parameters for EmailJS
+      // Prepare template parameters for main email to Payal
       const templateParams = {
         from_name: formData.name,
         from_email: formData.email,
@@ -68,10 +69,23 @@ export default function ContactPage() {
         reply_to: formData.email,
       }
 
-      // Send email using EmailJS
+      // Prepare template parameters for auto-reply email to sender
+      const autoReplyParams = {
+        to_email: formData.email,
+        to_name: formData.name,
+        from_name: 'Payal Fofadiya',
+        from_email: 'fofadiyapayal@gmail.com',
+        subject: 'Thank you for your message!',
+        reply_to: 'fofadiyapayal@gmail.com',
+      }
+
+      // Send main email to Payal
       const response = await emailjs.send(serviceId, templateId, templateParams, publicKey)
       
-      if (response.status === 200) {
+      // Send auto-reply email to the person who contacted
+      const autoReplyResponse = await emailjs.send(serviceId, autoReplyTemplateId, autoReplyParams, publicKey)
+      
+      if (response.status === 200 && autoReplyResponse.status === 200) {
         // Show success message
         setIsSubmitting(false)
         setShowSuccess(true)
