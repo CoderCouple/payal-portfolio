@@ -65,17 +65,15 @@ export default function ContactPage() {
         from_email: formData.email,
         subject: formData.subject,
         message: formData.message,
-        to_email: 'fofadiyapayal@gmail.com',
+        to_name: 'Payal',
         reply_to: formData.email,
       }
 
       // Prepare template parameters for auto-reply email to sender
       const autoReplyParams = {
-        to_email: formData.email,
         to_name: formData.name,
+        to_email: formData.email,
         from_name: 'Payal Fofadiya',
-        from_email: 'fofadiyapayal@gmail.com',
-        subject: 'Thank you for your message!',
         reply_to: 'fofadiyapayal@gmail.com',
       }
 
