@@ -1,5 +1,4 @@
 'use client'
-import { TextEffect } from '@/components/ui/text-effect'
 import Link from 'next/link'
 import { useTheme } from 'next-themes'
 import { SunIcon, MoonIcon } from 'lucide-react'
@@ -16,12 +15,6 @@ export function Header() {
     setMounted(true)
   }, [])
 
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId)
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' })
-    }
-  }
 
   return (
     <>

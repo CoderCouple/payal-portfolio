@@ -101,7 +101,7 @@ export function MediaGallery({
 
     window.addEventListener('keydown', handleKeyPress)
     return () => window.removeEventListener('keydown', handleKeyPress)
-  }, [imageIdx])
+  }, [imageIdx, goToPrevious, goToNext])
 
   if (!currentMedia) {
     notFound()
