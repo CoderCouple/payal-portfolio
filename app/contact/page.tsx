@@ -3,6 +3,7 @@ import { motion } from 'motion/react'
 import Link from 'next/link'
 import { ArrowLeftIcon, MailIcon, SendIcon, UserIcon, MessageSquareIcon, CheckCircleIcon } from 'lucide-react'
 import { useState } from 'react'
+import emailjs from '@emailjs/browser'
 
 const VARIANTS_CONTAINER = {
   hidden: { opacity: 0 },
@@ -45,22 +46,33 @@ export default function ContactPage() {
     setIsSubmitting(true)
     
     try {
-      // Create mailto URL with form data
-      const mailtoUrl = `mailto:fofadiyapayal@gmail.com?subject=${encodeURIComponent(formData.subject)}&body=${encodeURIComponent(
-        `Hi Payal,
+      // Validate required fields
+      if (!formData.name || !formData.email || !formData.subject || !formData.message) {
+        alert('Please fill in all fields')
+        setIsSubmitting(false)
+        return
+      }
 
-${formData.message}
+      // EmailJS configuration - you'll need to set these up in EmailJS dashboard
+      const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || 'service_default'
+      const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || 'template_default'
+      const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || 'your_public_key'
 
-Best regards,
-${formData.name}
-${formData.email ? `Email: ${formData.email}` : ''}`
-      )}`
+      // Prepare template parameters for EmailJS
+      const templateParams = {
+        from_name: formData.name,
+        from_email: formData.email,
+        subject: formData.subject,
+        message: formData.message,
+        to_email: 'fofadiyapayal@gmail.com',
+        reply_to: formData.email,
+      }
+
+      // Send email using EmailJS
+      const response = await emailjs.send(serviceId, templateId, templateParams, publicKey)
       
-      // Open default email client
-      window.location.href = mailtoUrl
-      
-      // Show success message after a brief delay
-      setTimeout(() => {
+      if (response.status === 200) {
+        // Show success message
         setIsSubmitting(false)
         setShowSuccess(true)
         
@@ -76,12 +88,32 @@ ${formData.email ? `Email: ${formData.email}` : ''}`
         setTimeout(() => {
           setShowSuccess(false)
         }, 5000)
-      }, 1000)
+      } else {
+        throw new Error('Failed to send email')
+      }
       
     } catch (error) {
-      console.error('Error opening email client:', error)
+      console.error('Error sending email:', error)
       setIsSubmitting(false)
-      // You could add error handling here if needed
+      
+      // Fallback to mailto if EmailJS fails
+      const emailBody = `Hi Payal,
+
+${formData.message}
+
+Best regards,
+${formData.name}
+Email: ${formData.email}`
+      
+      const mailtoUrl = `mailto:fofadiyapayal@gmail.com?subject=${encodeURIComponent(formData.subject)}&body=${encodeURIComponent(emailBody)}`
+      
+      const confirmed = confirm('Email service is currently unavailable. Would you like to open your email client instead?')
+      if (confirmed) {
+        window.open(mailtoUrl, '_self')
+        setShowSuccess(true)
+        setFormData({ name: '', email: '', subject: '', message: '' })
+        setTimeout(() => setShowSuccess(false), 5000)
+      }
     }
   }
 
@@ -139,7 +171,7 @@ ${formData.email ? `Email: ${formData.email}` : ''}`
                   Message Sent Successfully!
                 </h3>
                 <p className="text-emerald-800 dark:text-emerald-200">
-                  Your email client should have opened with your message. Thank you for reaching out!
+                  Your message has been sent directly to Payal. She'll get back to you soon!
                 </p>
               </div>
             </div>

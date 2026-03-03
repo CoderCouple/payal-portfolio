@@ -56,6 +56,7 @@ type SpeakingEngagement = {
   agendaUrl?: string
   eventUrl?: string
   speakerUrl?: string
+  eventWebsiteUrl?: string
   images?: {
     src: string
     alt: string
@@ -187,12 +188,12 @@ export const MEDIA_PUBLICATIONS: MediaPublication[] = [
 export const SPEAKING_ENGAGEMENTS: SpeakingEngagement[] = [
   {
     title: 'AI in the SDLC: Engineering Workflows in the Age of AI',
-    event: 'QonfX San Francisco 2025',
+    event: 'QonfX San Francisco 2026',
     date: 'March 20, 2026',
     location: 'San Francisco, CA',
     link: 'https://luma.com/qonfx-sf',
     id: 'speak-3',
-    slug: 'qonfx-sf-2025',
+    slug: 'qonfx-sf-2026',
     description: 'Expert panel exploring how AI systems are evolving from assistive tools to active participants in software development workflows. Discussion covers the transformation from AI-assisted practices to AI-driven execution across the Software Development Lifecycle, including requirements translation, continuous validation, and workflow orchestration.',
     topics: ['AI in SDLC', 'Engineering Workflows', 'Continuous Validation', 'Workflow Orchestration', 'AI-Driven Development', 'Build & Release Pipelines'],
     audience: 'Engineering Leaders, QA Directors, CTOs, VP Engineering',
@@ -203,7 +204,8 @@ export const SPEAKING_ENGAGEMENTS: SpeakingEngagement[] = [
     slidesUrl: 'https://drive.google.com/file/d/1TdNkgpvzBiJLNiHmUZ4sIiEGFnM9oGKJ/view',
     agendaUrl: 'https://drive.google.com/file/d/1IZWTJotw46cGYSwChoWttTFgZdCwjyS1/view',
     eventUrl: 'https://luma.com/qonfx-sf',
-    speakerUrl: 'https://www.thetesttribe.com/qonfx/san-francisco/#speakers'
+    speakerUrl: 'https://www.thetesttribe.com/qonfx/san-francisco/#speakers',
+    eventWebsiteUrl: 'https://www.thetesttribe.com/qonfx/san-francisco/'
   },
   {
     title: 'GenAI for Software Development - Beyond the Hype, Into the Code',
@@ -222,6 +224,7 @@ export const SPEAKING_ENGAGEMENTS: SpeakingEngagement[] = [
     image: '/techex/techex-header.png',
     agendaUrl: 'https://techexevent.com/northamerica/',
     speakerUrl: 'https://www.ai-expo.net/northamerica/speaker/payal-fofadiya/',
+    eventWebsiteUrl: 'https://techexevent.com/northamerica/',
   },
 ]
 

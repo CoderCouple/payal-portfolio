@@ -13,6 +13,7 @@ export type JudgingOpportunity = {
   organizationDescription?: string
   eventHighlights?: string[]
   image?: string
+  eventWebsiteUrl?: string
   images?: {
     src: string
     alt: string
@@ -33,6 +34,7 @@ export const JUDGING_DATA: JudgingOpportunity[] = [
     description: 'An exclusive event connecting founders, investors, and startup enthusiasts in a dynamic and intimate setting. Judging 15 AI startup pitches across various sectors including biotech, healthtech, cybersecurity, and fintech.',
     location: 'Venture Dock, Palo Alto, California',
     duration: '3.5 hours',
+    eventWebsiteUrl: 'https://luma.com/ohodmojd',
     responsibilities: [
       'Evaluate 15 AI startup pitches',
       'Provide constructive feedback to founders', 
@@ -106,6 +108,7 @@ export const JUDGING_DATA: JudgingOpportunity[] = [
     description: 'The 39th Annual San Mateo County STEM Fair showcasing innovative student projects in science, technology, engineering, and mathematics. Evaluating projects from middle and high school students across the county.',
     location: 'Virtual Event',
     duration: 'Full Day',
+    eventWebsiteUrl: 'https://stemfair.net/judges/',
     responsibilities: [
       'Evaluate student STEM projects across multiple categories',
       'Interview students about their research and methodology',

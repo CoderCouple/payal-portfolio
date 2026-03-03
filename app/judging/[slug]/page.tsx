@@ -82,7 +82,14 @@ export default function JudgingDetailPage({ params }: PageProps) {
           className="mb-12"
         >          
           <h1 className="mb-4 text-4xl font-bold text-zinc-900 dark:text-zinc-100 sm:text-5xl">
-            {judging.event}
+            <a 
+              href={judging.eventWebsiteUrl || "/#judging"}
+              target={judging.eventWebsiteUrl ? "_blank" : "_self"}
+              rel={judging.eventWebsiteUrl ? "noopener noreferrer" : undefined}
+              className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors underline decoration-2 underline-offset-4"
+            >
+              {judging.event}
+            </a>
           </h1>
           
           <div className="mb-6 flex flex-wrap gap-4 text-lg text-zinc-600 dark:text-zinc-400">
