@@ -2,5 +2,19 @@
   "framework": "nextjs",
   "buildCommand": "npm run build",
   "devCommand": "npm run dev",
-  "installCommand": "npm install"
+  "installCommand": "npm install",
+  "env": {
+    "NEXT_PUBLIC_EMAILJS_SERVICE_ID": "@emailjs-service-id",
+    "NEXT_PUBLIC_EMAILJS_TEMPLATE_ID": "@emailjs-template-id",
+    "NEXT_PUBLIC_EMAILJS_AUTOREPLY_TEMPLATE_ID": "@emailjs-autoreply-template-id",
+    "NEXT_PUBLIC_EMAILJS_PUBLIC_KEY": "@emailjs-public-key"
+  },
+  "build": {
+    "env": {
+      "NEXT_PUBLIC_EMAILJS_SERVICE_ID": "@emailjs-service-id",
+      "NEXT_PUBLIC_EMAILJS_TEMPLATE_ID": "@emailjs-template-id",
+      "NEXT_PUBLIC_EMAILJS_AUTOREPLY_TEMPLATE_ID": "@emailjs-autoreply-template-id",
+      "NEXT_PUBLIC_EMAILJS_PUBLIC_KEY": "@emailjs-public-key"
+    }
+  }
 }
