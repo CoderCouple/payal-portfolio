@@ -55,6 +55,7 @@ type SpeakingEngagement = {
   slidesUrl?: string
   agendaUrl?: string
   eventUrl?: string
+  speakerUrl?: string
   images?: {
     src: string
     alt: string
@@ -175,75 +176,52 @@ export const SOCIAL_LINKS: SocialLink[] = [
 
 export const MEDIA_PUBLICATIONS: MediaPublication[] = [
   {
-    title: 'The Rise of AI Agent Platforms in Enterprise',
-    publication: 'TechCrunch',
-    date: 'March 2024',
-    link: '#',
+    title: 'Early approaches in computer vision object detection and 3D reconstruction',
+    publication: 'IRAJ International Journal',
+    date: 'Jan 2014',
+    link: 'https://www.iraj.in/journal/journal_file/journal_pdf/12-105-142063760724-28.pdf',
     id: 'media-1',
-  },
-  {
-    title: 'From Engineering to Entrepreneurship: Building in the AI Era',
-    publication: 'Forbes',
-    date: 'January 2024',
-    link: '#',
-    id: 'media-2',
   },
 ]
 
 export const SPEAKING_ENGAGEMENTS: SpeakingEngagement[] = [
   {
-    title: 'Leadership in AI-First Era',
+    title: 'AI in the SDLC: Engineering Workflows in the Age of AI',
     event: 'QonfX San Francisco 2025',
     date: 'March 20, 2026',
     location: 'San Francisco, CA',
     link: 'https://luma.com/qonfx-sf',
     id: 'speak-3',
     slug: 'qonfx-sf-2025',
-    description: 'Expert panel discussion on leadership strategies and challenges in the AI-first era, exploring how leaders can navigate the transformation of organizations, teams, and processes in an AI-driven world.',
-    topics: ['AI Leadership', 'Digital Transformation', 'Organizational Change', 'AI Strategy', 'Future of Work'],
+    description: 'Expert panel exploring how AI systems are evolving from assistive tools to active participants in software development workflows. Discussion covers the transformation from AI-assisted practices to AI-driven execution across the Software Development Lifecycle, including requirements translation, continuous validation, and workflow orchestration.',
+    topics: ['AI in SDLC', 'Engineering Workflows', 'Continuous Validation', 'Workflow Orchestration', 'AI-Driven Development', 'Build & Release Pipelines'],
     audience: 'Engineering Leaders, QA Directors, CTOs, VP Engineering',
     organizer: 'The Test Tribe',
     organizerDescription: 'The world\'s largest Software Testing/QA community with members in 120+ countries and 44 global chapters, dedicated to advancing quality engineering practices.',
     conferenceDescription: 'QonfX is an exclusive, invite-only conference that brings together top Engineering, QA, and Business Leaders to discuss the present and future of software testing and quality assurance.',
-    image: '/speaking-qonfx-sf-2025.jpg',
+    image: '/qonfx/qonfx-header.png',
     slidesUrl: 'https://drive.google.com/file/d/1TdNkgpvzBiJLNiHmUZ4sIiEGFnM9oGKJ/view',
     agendaUrl: 'https://drive.google.com/file/d/1IZWTJotw46cGYSwChoWttTFgZdCwjyS1/view',
     eventUrl: 'https://luma.com/qonfx-sf',
-    images: [
-      {
-        src: '/speaking-qonfx-sf-2025-1.jpg',
-        alt: 'Payal speaking at QonfX San Francisco panel discussion',
-        caption: 'Leadership in AI-First Era panel discussion at QonfX SF 2025'
-      },
-      {
-        src: '/speaking-qonfx-sf-2025-2.jpg',
-        alt: 'QonfX San Francisco conference venue and audience',
-        caption: 'QonfX San Francisco exclusive conference venue'
-      },
-      {
-        src: '/speaking-qonfx-sf-2025-3.jpg',
-        alt: 'Expert panel with industry leaders at QonfX',
-        caption: 'Expert panel featuring top QA and Engineering leaders'
-      }
-    ]
+    speakerUrl: 'https://www.thetesttribe.com/qonfx/san-francisco/#speakers'
   },
   {
-    title: 'AI Agents in Enterprise: From POC to Production Scale',
-    event: 'TechEx North America - AI & Big Data Expo',
-    date: 'June 4-5, 2025',
+    title: 'GenAI for Software Development - Beyond the Hype, Into the Code',
+    event: 'TechEx North America 2026: AI Developer',
+    date: 'May 19, 2026',
     location: 'Santa Clara, CA',
-    link: '/speaking/techex-north-america-2025',
+    link: '/speaking/techex-north-america-2026',
     id: 'speak-4',
-    slug: 'techex-north-america-2025',
-    description: 'Comprehensive session on scaling AI agent systems in enterprise environments, covering architecture patterns, deployment strategies, and lessons learned from production implementations.',
-    topics: ['AI Agents', 'Enterprise Scale', 'Production Deployment', 'Big Data', 'ML Operations'],
+    slug: 'techex-north-america-2026',
+    description: 'Panel discussion moving beyond the AI hype to explore practical applications of Generative AI in software development workflows. Discussion covers real-world implementation challenges, developer productivity impacts, and sustainable integration strategies for AI tools in development teams.',
+    topics: ['Generative AI', 'Software Development', 'Developer Productivity', 'AI Tools Integration', 'Development Workflows', 'Practical AI Applications'],
     audience: 'AI Engineers, Data Scientists, Enterprise Architects, CTOs',
     organizer: 'TechEx Events',
     organizerDescription: 'Leading technology conference organizer bringing together 8,000+ innovators, 250+ speakers and 200+ exhibitors across seven co-located events focused on emerging technologies.',
     conferenceDescription: 'TechEx North America is the premier technology event in Silicon Valley, featuring AI & Big Data, Cyber Security & Cloud, IoT, Digital Transformation, Edge Computing, Intelligent Automation and Data Center technologies.',
-    image: '/speaking-techex-na-2025.jpg',
-    slidesUrl: 'https://drive.google.com/file/d/1IZWTJotw46cGYSwChoWttTFgZdCwjyS1/view',
+    image: '/techex/techex-header.png',
     agendaUrl: 'https://techexevent.com/northamerica/',
+    speakerUrl: 'https://www.ai-expo.net/northamerica/speaker/payal-fofadiya/',
   },
 ]
 
@@ -253,7 +231,7 @@ export const BOOKS: Book[] = [
   {
     title: 'AI Agents in Production: A Practical Guide',
     publisher: 'O\'Reilly Media',
-    date: 'Coming 2025',
+    date: 'Coming 2026',
     description: 'A comprehensive guide to building and deploying AI agent systems in enterprise environments.',
     link: '#',
     id: 'book-1',

@@ -112,11 +112,11 @@ export default function SpeakingDetailPage({ params }: PageProps) {
             transition={TRANSITION_SECTION}
             className="mb-12"
           >
-            <div className="overflow-hidden rounded-2xl">
+            <div className="overflow-hidden rounded-2xl bg-zinc-50 dark:bg-zinc-900">
               <img
                 src={speaking.image}
                 alt={`Payal speaking at ${speaking.event}`}
-                className="w-full h-64 object-cover sm:h-80 md:h-96"
+                className="w-full h-auto object-contain"
                 onError={(e) => {
                   // Fallback to placeholder if image doesn't exist
                   e.currentTarget.src = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='400' viewBox='0 0 800 400'%3E%3Crect width='800' height='400' fill='%23f3f4f6'/%3E%3Ctext x='400' y='200' font-family='Arial' font-size='20' fill='%236b7280' text-anchor='middle'%3ESpeaking at " + speaking.event + "%3C/text%3E%3C/svg%3E"
@@ -159,7 +159,7 @@ export default function SpeakingDetailPage({ params }: PageProps) {
           </div>
         </motion.section>
 
-        {(speaking.videoUrl || speaking.slidesUrl || speaking.agendaUrl || speaking.eventUrl) && (
+        {(speaking.videoUrl || speaking.slidesUrl || speaking.agendaUrl || speaking.eventUrl || speaking.speakerUrl) && (
           <motion.section
             variants={VARIANTS_SECTION}
             transition={TRANSITION_SECTION}
@@ -211,6 +211,17 @@ export default function SpeakingDetailPage({ params }: PageProps) {
                 >
                   <ExternalLinkIcon className="h-5 w-5" />
                   View Event
+                </a>
+              )}
+              {speaking.speakerUrl && (
+                <a
+                  href={speaking.speakerUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 rounded-lg bg-amber-600 px-6 py-3 font-medium text-white hover:bg-amber-700 transition-colors"
+                >
+                  <UsersIcon className="h-5 w-5" />
+                  View Speaker
                 </a>
               )}
             </div>

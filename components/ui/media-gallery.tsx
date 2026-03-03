@@ -53,6 +53,10 @@ export function MediaGallery({
     setMounted(true)
   }, [])
   
+  useEffect(() => {
+    setCurrentIndex(initialIndex)
+  }, [initialIndex])
+  
   if (!media || media.length === 0) {
     notFound()
   }
@@ -68,10 +72,6 @@ export function MediaGallery({
   const imageIdx = Math.max(0, Math.min(currentIndex, media.length - 1))
   const currentMedia = media[imageIdx]
   const mediaType = getMediaType(currentMedia.src, currentMedia.type)
-  
-  useEffect(() => {
-    setCurrentIndex(initialIndex)
-  }, [initialIndex])
 
   const goToPrevious = () => {
     const newIndex = imageIdx === 0 ? media.length - 1 : imageIdx - 1
@@ -146,13 +146,14 @@ export function MediaGallery({
       </div>
 
       {/* Main media display */}
-      <div className="flex items-center justify-center h-full px-4 py-20">
+      <div className="flex items-center justify-center h-full px-4 py-24">
         <motion.div
           key={imageIdx}
           variants={VARIANTS_IMAGE}
           initial="hidden"
           animate="visible"
-          className="relative flex items-center justify-center w-full h-full max-w-7xl max-h-full"
+          className="relative flex items-center justify-center w-full max-w-7xl"
+          style={{ height: 'calc(100vh - 12rem)' }}
         >
           {mediaType === 'video' ? (
             <video
