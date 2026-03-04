@@ -66,46 +66,37 @@ export function Header() {
 
       {/* Hero Section with Text - Only show on home page */}
       {isHomePage && (
-        <section className="py-16">
-          <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-            <div className="flex flex-col lg:flex-row items-center gap-12">
-              {/* Photo Section - Left */}
-              <div className="flex-shrink-0">
-                <div className="relative h-80 w-80 overflow-hidden rounded-2xl ring-4 ring-zinc-200 dark:ring-zinc-700 shadow-2xl">
-                  <img
-                    src="/payal-head-shot.png"
-                    alt="Payal Fofadiya"
-                    className="h-full w-full object-cover"
-                  />
-                </div>
-              </div>
-              
-              {/* Content Section - Right */}
-              <div className="flex-1 text-center lg:text-left">
-                <h1 className="mb-4 text-4xl font-bold text-zinc-900 dark:text-zinc-100 sm:text-5xl lg:text-6xl">
-                  Payal Fofadiya
-                </h1>
-                <p className="mb-6 text-xl text-zinc-600 dark:text-zinc-400 font-medium lg:text-2xl">
-                  Ex-Founder, Pioneering AI Agent Systems at Enterprise Scale
-                </p>
-                <div className="mb-8 flex flex-wrap items-center justify-center lg:justify-start gap-3">
-                  <span className="rounded-full bg-emerald-100 px-4 py-2 text-sm font-medium text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-300">
-                    🚀 AI Pioneer
-                  </span>
-                  <span className="rounded-full bg-blue-100 px-4 py-2 text-sm font-medium text-blue-700 dark:bg-blue-900/30 dark:text-blue-300">
-                    💡 Founder
-                  </span>
-                  <span className="rounded-full bg-purple-100 px-4 py-2 text-sm font-medium text-purple-700 dark:bg-purple-900/30 dark:text-purple-300">
-                    🏗️ Platform Builder
-                  </span>
-                </div>
-                <p className="text-xl text-zinc-600 dark:text-zinc-400 leading-relaxed lg:text-xl">
-                  From enterprise LLM platforms at LinkedIn to revolutionary interview agents at Fulloop AI—
-                  building the infrastructure that powers tomorrow's intelligent systems.
-                </p>
-              </div>
+        <section className="py-16 text-center">
+          <div className="mb-4 flex items-center justify-center">
+            <div className="relative h-32 w-32 overflow-hidden rounded-full ring-2 ring-zinc-200 dark:ring-zinc-700">
+              <img
+                src="/payal-head-shot.png"
+                alt="Payal Fofadiya"
+                className="h-full w-full object-cover"
+              />
             </div>
           </div>
+          <h1 className="mb-4 text-4xl font-bold text-zinc-900 dark:text-zinc-100 sm:text-5xl">
+            Payal Fofadiya
+          </h1>
+          <p className="mb-6 text-xl text-zinc-600 dark:text-zinc-400 font-medium">
+            Ex-Founder, Pioneering AI Agent Systems at Enterprise Scale
+          </p>
+          <div className="mb-8 flex flex-wrap items-center justify-center gap-2">
+            <span className="rounded-full bg-emerald-100 px-4 py-2 text-sm font-medium text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-300">
+              🚀 AI Pioneer
+            </span>
+            <span className="rounded-full bg-blue-100 px-4 py-2 text-sm font-medium text-blue-700 dark:bg-blue-900/30 dark:text-blue-300">
+              💡 Founder
+            </span>
+            <span className="rounded-full bg-purple-100 px-4 py-2 text-sm font-medium text-purple-700 dark:bg-purple-900/30 dark:text-purple-300">
+              🏗️ Platform Builder
+            </span>
+          </div>
+          <p className="mx-auto max-w-4xl text-xl text-zinc-600 dark:text-zinc-400 leading-relaxed">
+            From enterprise LLM platforms at LinkedIn to revolutionary interview agents at Fulloop AI—
+            building the infrastructure that powers tomorrow's intelligent systems.
+          </p>
         </section>
       )}
     </>
