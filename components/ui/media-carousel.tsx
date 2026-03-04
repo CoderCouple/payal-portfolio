@@ -1,6 +1,5 @@
 'use client'
 import Link from 'next/link'
-import { motion } from 'motion/react'
 import { useState, useEffect } from 'react'
 import {
   Carousel,
@@ -134,8 +133,8 @@ export function MediaCarousel({
             )
           })}
         </CarouselContent>
-        <CarouselPrevious className="left-2" />
-        <CarouselNext className="right-2" />
+        <CarouselPrevious className="left-2 bg-white/90 hover:bg-white text-zinc-800 border-zinc-200 shadow-lg" />
+        <CarouselNext className="right-2 bg-white/90 hover:bg-white text-zinc-800 border-zinc-200 shadow-lg" />
       </Carousel>
     </div>
   )

@@ -3,7 +3,7 @@ import { motion } from 'motion/react'
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
 import { ArrowLeftIcon, ChevronLeftIcon, ChevronRightIcon, XIcon } from 'lucide-react'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import { MediaItem } from './media-carousel'
 
 // Helper function to detect media type
@@ -49,6 +49,24 @@ export function MediaGallery({
   const [currentIndex, setCurrentIndex] = useState(initialIndex)
   const [mounted, setMounted] = useState(false)
   
+  const imageIdx = Math.max(0, Math.min(currentIndex, (media?.length || 1) - 1))
+  const currentMedia = media?.[imageIdx]
+  const mediaType = currentMedia ? getMediaType(currentMedia.src, currentMedia.type) : 'image'
+
+  const goToPrevious = useCallback(() => {
+    if (!media || media.length === 0) return
+    const newIndex = imageIdx === 0 ? media.length - 1 : imageIdx - 1
+    setCurrentIndex(newIndex)
+    window.history.replaceState(null, '', `${urlPrefix}/image/${newIndex}`)
+  }, [imageIdx, media, urlPrefix])
+
+  const goToNext = useCallback(() => {
+    if (!media || media.length === 0) return
+    const newIndex = imageIdx === media.length - 1 ? 0 : imageIdx + 1
+    setCurrentIndex(newIndex)
+    window.history.replaceState(null, '', `${urlPrefix}/image/${newIndex}`)
+  }, [imageIdx, media, urlPrefix])
+
   useEffect(() => {
     setMounted(true)
   }, [])
@@ -56,34 +74,6 @@ export function MediaGallery({
   useEffect(() => {
     setCurrentIndex(initialIndex)
   }, [initialIndex])
-  
-  if (!media || media.length === 0) {
-    notFound()
-  }
-  
-  if (!mounted) {
-    return (
-      <div className="fixed inset-0 z-50 bg-black flex items-center justify-center">
-        <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-white"></div>
-      </div>
-    )
-  }
-  
-  const imageIdx = Math.max(0, Math.min(currentIndex, media.length - 1))
-  const currentMedia = media[imageIdx]
-  const mediaType = getMediaType(currentMedia.src, currentMedia.type)
-
-  const goToPrevious = () => {
-    const newIndex = imageIdx === 0 ? media.length - 1 : imageIdx - 1
-    setCurrentIndex(newIndex)
-    window.history.replaceState(null, '', `${urlPrefix}/image/${newIndex}`)
-  }
-
-  const goToNext = () => {
-    const newIndex = imageIdx === media.length - 1 ? 0 : imageIdx + 1
-    setCurrentIndex(newIndex)
-    window.history.replaceState(null, '', `${urlPrefix}/image/${newIndex}`)
-  }
 
   // Keyboard navigation
   useEffect(() => {
@@ -101,7 +91,19 @@ export function MediaGallery({
 
     window.addEventListener('keydown', handleKeyPress)
     return () => window.removeEventListener('keydown', handleKeyPress)
-  }, [imageIdx, goToPrevious, goToNext])
+  }, [goToPrevious, goToNext])
+  
+  if (!media || media.length === 0) {
+    notFound()
+  }
+  
+  if (!mounted) {
+    return (
+      <div className="fixed inset-0 z-50 bg-black flex items-center justify-center">
+        <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-white"></div>
+      </div>
+    )
+  }
 
   if (!currentMedia) {
     notFound()
