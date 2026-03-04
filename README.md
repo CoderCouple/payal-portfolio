@@ -33,4 +33,4 @@ This project is configured for Vercel deployment with automatic builds.
 
 ## Contact
 
-Payal Fofadiya - fofadiyapayal@gmail.com
+Payal Fofadiya - fofadiyapayal@gmail.com# Deploy trigger Tue Mar  3 17:16:07 PST 2026
