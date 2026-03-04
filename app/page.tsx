@@ -180,7 +180,7 @@ export default function Personal() {
         variants={VARIANTS_SECTION}
         transition={TRANSITION_SECTION}
       >
-        <h3 className="mb-5 text-lg font-medium">Key Achievements</h3>
+        <h3 className="mb-5 text-lg font-medium text-zinc-900 dark:text-zinc-100">Key Achievements</h3>
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 mb-12">
           <div className="rounded-lg bg-gradient-to-br from-blue-50 to-indigo-50 p-4 dark:from-blue-950/20 dark:to-indigo-950/20">
             <h4 className="font-medium text-zinc-900 dark:text-zinc-100">LinkedIn Agent Platform</h4>
@@ -206,7 +206,7 @@ export default function Personal() {
         variants={VARIANTS_SECTION}
         transition={TRANSITION_SECTION}
       >
-        <h3 className="mb-5 text-lg font-medium">Work Experience</h3>
+        <h3 className="mb-5 text-lg font-medium text-zinc-900 dark:text-zinc-100">Work Experience</h3>
         <div className="flex flex-col space-y-2">
           {WORK_EXPERIENCE.map((job) => (
             <a
@@ -260,7 +260,7 @@ export default function Personal() {
         variants={VARIANTS_SECTION}
         transition={TRANSITION_SECTION}
       >
-        <h3 className="mb-5 text-lg font-medium">Blog</h3>
+        <h3 className="mb-5 text-lg font-medium text-zinc-900 dark:text-zinc-100">Blog</h3>
         <div className="flex flex-col space-y-2">
           {BLOG_POSTS.map((post) => (
             <a
@@ -293,7 +293,7 @@ export default function Personal() {
         variants={VARIANTS_SECTION}
         transition={TRANSITION_SECTION}
       >
-        <h3 className="mb-5 text-lg font-medium">Media & Publications</h3>
+        <h3 className="mb-5 text-lg font-medium text-zinc-900 dark:text-zinc-100">Media & Publications</h3>
         <div className="flex flex-col space-y-2">
           {MEDIA_PUBLICATIONS.map((publication) => (
             <a
@@ -326,7 +326,7 @@ export default function Personal() {
         variants={VARIANTS_SECTION}
         transition={TRANSITION_SECTION}
       >
-        <h3 className="mb-5 text-lg font-medium">Speaking & Conferences</h3>
+        <h3 className="mb-5 text-lg font-medium text-zinc-900 dark:text-zinc-100">Speaking & Conferences</h3>
         <div className="flex flex-col space-y-2">
           {SPEAKING_ENGAGEMENTS.map((engagement) => (
             <a
@@ -359,7 +359,7 @@ export default function Personal() {
         variants={VARIANTS_SECTION}
         transition={TRANSITION_SECTION}
       >
-        <h3 className="mb-5 text-lg font-medium">Judging & Advisory</h3>
+        <h3 className="mb-5 text-lg font-medium text-zinc-900 dark:text-zinc-100">Judging & Advisory</h3>
         <div className="flex flex-col space-y-2">
           {JUDGING_OPPORTUNITIES.map((opportunity) => (
             <a
@@ -392,7 +392,7 @@ export default function Personal() {
         variants={VARIANTS_SECTION}
         transition={TRANSITION_SECTION}
       >
-        <h3 className="mb-5 text-lg font-medium">Books</h3>
+        <h3 className="mb-5 text-lg font-medium text-zinc-900 dark:text-zinc-100">Books</h3>
         <div className="flex flex-col space-y-2">
           {BOOKS.map((book) => (
             <a
@@ -428,7 +428,7 @@ export default function Personal() {
         variants={VARIANTS_SECTION}
         transition={TRANSITION_SECTION}
       >
-        <h3 className="mb-5 text-lg font-medium">News & Press</h3>
+        <h3 className="mb-5 text-lg font-medium text-zinc-900 dark:text-zinc-100">News & Press</h3>
         <div className="flex flex-col space-y-2">
           {NEWS_PUBLICATIONS.map((news) => (
             <a
@@ -490,7 +490,7 @@ export default function Personal() {
         variants={VARIANTS_SECTION}
         transition={TRANSITION_SECTION}
       >
-        <h3 className="mb-5 text-lg font-medium">Connect</h3>
+        <h3 className="mb-5 text-lg font-medium text-zinc-900 dark:text-zinc-100">Connect</h3>
         <p className="mb-5 text-zinc-600 dark:text-zinc-400">
           Feel free to contact me at{' '}
           <a className="underline dark:text-zinc-300" href={`mailto:${EMAIL}`}>
