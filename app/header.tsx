@@ -88,7 +88,11 @@ export function Header() {
                 <p className="mb-6 text-xl text-zinc-600 dark:text-zinc-400 font-medium lg:text-2xl">
                   Ex-Founder, Pioneering AI Agent Systems at Enterprise Scale
                 </p>
-                <div className="mb-8 flex flex-wrap items-center justify-center lg:justify-start gap-3">
+                <p className="mb-8 text-xl text-zinc-600 dark:text-zinc-400 leading-relaxed lg:text-xl">
+                  From enterprise LLM platforms at LinkedIn to revolutionary interview agents at Fulloop AI—
+                  building the infrastructure that powers tomorrow's intelligent systems.
+                </p>
+                <div className="flex flex-wrap items-center justify-center lg:justify-start gap-3">
                   <span className="rounded-full bg-emerald-100 px-4 py-2 text-sm font-medium text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-300">
                     🚀 AI Pioneer
                   </span>
@@ -99,10 +103,6 @@ export function Header() {
                     🏗️ Platform Builder
                   </span>
                 </div>
-                <p className="text-xl text-zinc-600 dark:text-zinc-400 leading-relaxed lg:text-xl">
-                  From enterprise LLM platforms at LinkedIn to revolutionary interview agents at Fulloop AI—
-                  building the infrastructure that powers tomorrow's intelligent systems.
-                </p>
               </div>
             </div>
           </div>
