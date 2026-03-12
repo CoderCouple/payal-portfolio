@@ -141,9 +141,9 @@ export default function SpeakingDetailPage({ params }: PageProps) {
           <h3 className="mb-4 text-xl font-semibold text-zinc-900 dark:text-zinc-100">
             About This Talk
           </h3>
-          <p className="text-lg leading-relaxed text-zinc-700 dark:text-zinc-300">
+          <div className="text-lg leading-relaxed text-zinc-700 dark:text-zinc-300 whitespace-pre-line">
             {speaking.description}
-          </p>
+          </div>
         </motion.section>
 
         <motion.section

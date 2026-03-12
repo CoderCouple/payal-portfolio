@@ -238,6 +238,24 @@ export const SPEAKING_ENGAGEMENTS: SpeakingEngagement[] = [
     speakerUrl: 'https://www.ai-expo.net/northamerica/speaker/payal-fofadiya/',
     eventWebsiteUrl: 'https://techexevent.com/northamerica/',
   },
+  {
+    title: 'AI & Context Management',
+    event: 'AI DevSummit + DeveloperWeek Management 2026',
+    date: 'May 27-28, 2026',
+    location: 'South San Francisco, CA',
+    link: '/speaking/ai-devsummit-developerweek-2026',
+    id: 'speak-5',
+    slug: 'ai-devsummit-developerweek-2026',
+    description: 'Business/Thought Leadership session covering:\n• Cognitive memory for agents\n• Advanced context management\n• Architecting long-running, autonomous agents\n\nDrawing from real-world implementation experience at LinkedIn\'s AI Agents Platform, this talk shares practical lessons, architectural patterns, and hard-earned insights from building and scaling production-grade AI agents.',
+    topics: ['Cognitive Memory for Agents', 'Advanced Context Management', 'Long-Running Autonomous Agents', 'Production AI', 'Agent Architecture', 'Real-World Implementation'],
+    audience: 'AI Engineers, ML Engineers, Engineering Managers, Technical Leaders',
+    organizer: 'DevNetwork',
+    organizerDescription: 'DevNetwork produces DeveloperWeek, the world\'s largest developer & engineering conference & expo series with 10,000+ participants across multiple events.',
+    conferenceDescription: 'AI DevSummit is the premier conference focused on artificial intelligence for developers, featuring cutting-edge AI technologies, best practices, and real-world implementations. The conference tracks include AI Frameworks, Tools, and Applied AI as well as AI Strategy, Case Studies, and Success Stories.',
+    sessionFormat: 'Business/Thought Leadership (25 Min)',
+    image: '/ai-devsummit/ai-devsummit-speaker.png',
+    eventWebsiteUrl: 'https://aidevsummit.co/',
+  },
 ]
 
 export const JUDGING_OPPORTUNITIES: JudgingOpportunity[] = JUDGING_DATA
@@ -255,28 +273,12 @@ export const BOOKS: Book[] = [
 
 export const NEWS_PUBLICATIONS: NewsPublication[] = [
   {
-    title: 'LinkedIn Launches Revolutionary AI Agent Platform',
-    publication: 'The Information',
-    date: 'October 2024',
+    title: 'Fulloop Highlights Institutional Shift Toward AI Infrastructure Investment',
+    publication: 'Business Insider',
+    date: 'November 2024',
     type: 'press-release',
-    link: '#',
+    link: 'https://markets.businessinsider.com/news/stocks/fulloop-highlights-institutional-shift-toward-ai-infrastructure-investment-1035916673',
     id: 'news-1',
-  },
-  {
-    title: 'How Fulloop AI is Changing Technical Recruiting',
-    publication: 'VentureBeat',
-    date: 'August 2024',
-    type: 'feature',
-    link: '#',
-    id: 'news-2',
-  },
-  {
-    title: 'Interview: The Woman Behind AI-Powered Interviews',
-    publication: 'Wired',
-    date: 'July 2024',
-    type: 'interview',
-    link: '#',
-    id: 'news-3',
   },
 ]
 

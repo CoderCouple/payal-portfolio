@@ -301,7 +301,7 @@ export default function Personal() {
         variants={VARIANTS_SECTION}
         transition={TRANSITION_SECTION}
       >
-        <h3 className="mb-5 text-lg font-medium text-zinc-900 dark:text-zinc-100">Media & Publications</h3>
+        <h3 className="mb-5 text-lg font-medium text-zinc-900 dark:text-zinc-100">White Papers & Publications</h3>
         <div className="flex flex-col space-y-2">
           {MEDIA_PUBLICATIONS.map((publication) => (
             <a
