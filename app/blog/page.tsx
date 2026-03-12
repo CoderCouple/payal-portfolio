@@ -30,31 +30,35 @@ const VARIANTS_ITEM = {
 
 export default function BlogPage() {
   return (
-    <div className="mx-auto max-w-6xl px-4 py-8 sm:px-6 lg:px-8">
-      <motion.div
-        initial="hidden"
-        animate="visible"
-        variants={VARIANTS_CONTAINER}
-      >
+    <motion.div
+      className="min-h-screen bg-white dark:bg-zinc-950"
+      variants={VARIANTS_CONTAINER}
+      initial="hidden"
+      animate="visible"
+    >
+      <div className="mx-auto max-w-5xl px-4 py-16">
         {/* Page Header */}
-        <motion.div variants={VARIANTS_ITEM} className="space-y-2 pb-8 md:space-y-5">
-          <h1 className="text-3xl font-extrabold leading-9 tracking-tight text-zinc-900 dark:text-zinc-100 sm:text-4xl sm:leading-10 md:text-6xl md:leading-14">
-            Latest
+        <motion.header
+          variants={VARIANTS_ITEM}
+          className="mb-12 text-center"
+        >
+          <h1 className="mb-4 text-4xl font-bold text-zinc-900 dark:text-zinc-100">
+            Blog
           </h1>
-          <p className="text-lg leading-7 text-zinc-500 dark:text-zinc-400">
+          <p className="text-lg text-zinc-600 dark:text-zinc-400">
             Thoughts on AI agents, platform engineering, and building intelligent systems
           </p>
-        </motion.div>
+        </motion.header>
 
-        {/* Blog Posts Grid - 2 columns */}
+        {/* Blog Posts List - single column */}
         <motion.div 
-          className="grid gap-6 md:grid-cols-2"
+          className="space-y-6"
           variants={VARIANTS_CONTAINER}
         >
           {BLOG_POSTS.map((post) => (
             <motion.article
               key={post.uid}
-              className="group relative overflow-hidden rounded-2xl bg-zinc-50/50 dark:bg-zinc-900/50 border border-zinc-200 dark:border-zinc-800 p-6 hover:shadow-lg transition-shadow"
+              className="group relative overflow-hidden rounded-2xl bg-zinc-50/50 dark:bg-zinc-900/50 border border-zinc-200 dark:border-zinc-800 p-8 hover:shadow-lg transition-shadow"
               variants={VARIANTS_ITEM}
             >
               {/* Date */}
@@ -129,7 +133,7 @@ export default function BlogPage() {
             </a>
           </div>
         </motion.div>
-      </motion.div>
-    </div>
+      </div>
+    </motion.div>
   )
 }
