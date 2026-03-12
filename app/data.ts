@@ -21,6 +21,8 @@ type BlogPost = {
   description: string
   link: string
   uid: string
+  date: string
+  tags: string[]
 }
 
 type SocialLink = {
@@ -157,12 +159,16 @@ export const BLOG_POSTS: BlogPost[] = [
     description: 'Intelligent context compression techniques for optimizing LLM memory while preserving critical reasoning information',
     link: 'https://pfofadiya.substack.com/p/developing-adaptive-context-compression',
     uid: 'blog-2',
+    date: 'December 15, 2024',
+    tags: ['AI Agents', 'LLM', 'Memory Optimization'],
   },
   {
     title: 'Designing Hierarchical Memory Systems for AI Agents',
     description: 'Deep dive into architecting memory systems that enable AI agents to learn, adapt, and retain knowledge across conversations and tasks',
     link: 'https://pfofadiya.substack.com/p/designing-hierarchical-memory-systems',
     uid: 'blog-1',
+    date: 'December 1, 2024',
+    tags: ['AI Agents', 'Architecture', 'Memory Systems'],
   },
 ]
 

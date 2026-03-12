@@ -262,7 +262,7 @@ export default function Personal() {
       >
         <h3 className="mb-5 text-lg font-medium text-zinc-900 dark:text-zinc-100">Blog</h3>
         <div className="flex flex-col space-y-2">
-          {BLOG_POSTS.map((post) => (
+          {BLOG_POSTS.slice(0, 5).map((post) => (
             <a
               className="relative overflow-hidden rounded-2xl bg-zinc-300/30 p-[1px] dark:bg-zinc-600/30"
               href={post.link}
@@ -286,6 +286,14 @@ export default function Personal() {
               </div>
             </a>
           ))}
+          {BLOG_POSTS.length > 5 && (
+            <a
+              href="/blog"
+              className="mt-4 inline-flex items-center justify-center rounded-md px-4 py-2 text-sm font-medium text-blue-600 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300 transition-colors"
+            >
+              Show more posts →
+            </a>
+          )}
         </div>
       </motion.section>
 
