@@ -153,6 +153,12 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
 
 export const BLOG_POSTS: BlogPost[] = [
   {
+    title: 'Developing Adaptive Context Compression',
+    description: 'Intelligent context compression techniques for optimizing LLM memory while preserving critical reasoning information',
+    link: 'https://pfofadiya.substack.com/p/developing-adaptive-context-compression',
+    uid: 'blog-2',
+  },
+  {
     title: 'Designing Hierarchical Memory Systems for AI Agents',
     description: 'Deep dive into architecting memory systems that enable AI agents to learn, adapt, and retain knowledge across conversations and tasks',
     link: 'https://pfofadiya.substack.com/p/designing-hierarchical-memory-systems',
