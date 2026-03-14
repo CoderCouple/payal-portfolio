@@ -213,8 +213,8 @@ export const SPEAKING_ENGAGEMENTS: SpeakingEngagement[] = [
     organizerDescription: 'The world\'s largest Software Testing/QA community with members in 120+ countries and 44 global chapters, dedicated to advancing quality engineering practices.',
     conferenceDescription: 'QonfX is an exclusive, invite-only conference that brings together top Engineering, QA, and Business Leaders to discuss the present and future of software testing and quality assurance.',
     image: '/qonfx/qonfx-header.png',
-    slidesUrl: 'https://drive.google.com/file/d/1TdNkgpvzBiJLNiHmUZ4sIiEGFnM9oGKJ/view',
-    agendaUrl: 'https://drive.google.com/file/d/1IZWTJotw46cGYSwChoWttTFgZdCwjyS1/view',
+    slidesUrl: 'https://drive.google.com/file/d/1tfhyQDYuxwv7zYzg8c34vUV64M9yyzxM/view',
+    agendaUrl: 'https://drive.google.com/file/d/1iNX2xpNGvvrpJZc5YDVHmubMFoFGIZeX/view',
     eventUrl: 'https://luma.com/qonfx-sf',
     speakerUrl: 'https://www.thetesttribe.com/qonfx/san-francisco/#speakers',
     eventWebsiteUrl: 'https://www.thetesttribe.com/qonfx/san-francisco/'

@@ -13,7 +13,7 @@ export const viewport: Viewport = {
 }
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://payal-portfolio.vercel.app/'),
+  metadataBase: new URL('https://fofadiya.com/'),
   alternates: {
     canonical: '/'
   },
