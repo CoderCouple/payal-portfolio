@@ -14,6 +14,8 @@ export type JudgingOpportunity = {
   eventHighlights?: string[]
   image?: string
   eventWebsiteUrl?: string
+  certificateUrl?: string
+  docsUrl?: string
   images?: {
     src: string
     alt: string
@@ -48,49 +50,56 @@ export const JUDGING_DATA: JudgingOpportunity[] = [
       'Focus on production-ready AI applications',
       'Intimate setting for meaningful connections'
     ],
+    image: '/ai-pitch-night-feb-25-2026/ai_pitch_night1.png',
     images: [
       {
-        src: '/ai-pitch-night-feb-25-2026/WhatsApp Image 2026-02-26 at 11.17.55.jpeg',
+        src: '/ai-pitch-night-feb-25-2026/ai_pitch_night1.png',
+        alt: 'AI Pitch Night with TheAgentic & Tehele Ventures',
+        caption: 'AI Pitch Night event featuring top AI startups',
+        type: 'image'
+      },
+      {
+        src: '/ai-pitch-night-feb-25-2026/ai_pitch_night9.jpeg',
         alt: 'Payal at AI Pitch Night event with TheAgentic & Tehele Ventures',
         caption: 'AI Pitch Night event at Venture Dock, Palo Alto'
       },
       {
-        src: '/ai-pitch-night-feb-25-2026/WhatsApp Image 2026-02-26 at 11.18.16.jpeg', 
+        src: '/ai-pitch-night-feb-25-2026/ai_pitch_night2.jpeg', 
         alt: 'Payal networking with founders and investors at AI Pitch Night',
         caption: 'Networking with AI startup founders and investors'
       },
       {
-        src: '/ai-pitch-night-feb-25-2026/WhatsApp Image 2026-02-26 at 11.19.14.jpeg',
+        src: '/ai-pitch-night-feb-25-2026/ai_pitch_night3.jpeg',
         alt: 'AI startup presentations at Venture Dock venue',
         caption: 'Startup pitches being evaluated by expert judges'
       },
       {
-        src: '/ai-pitch-night-feb-25-2026/WhatsApp Image 2026-02-26 at 11.19.42.jpeg',
+        src: '/ai-pitch-night-feb-25-2026/ai_pitch_night4.jpeg',
         alt: 'Payal judging AI startup presentations',
         caption: 'Evaluating innovative AI solutions and business models'
       },
       {
-        src: '/ai-pitch-night-feb-25-2026/WhatsApp Image 2026-02-26 at 11.20.28.jpeg',
+        src: '/ai-pitch-night-feb-25-2026/ai_pitch_night5.jpeg',
         alt: 'TheAgentic & Tehele Ventures AI Pitch Night venue setup',
         caption: 'Professional venue setup for AI startup presentations'
       },
       {
-        src: '/ai-pitch-night-feb-25-2026/WhatsApp Image 2026-02-26 at 11.20.59.jpeg',
+        src: '/ai-pitch-night-feb-25-2026/ai_pitch_night6.jpeg',
         alt: 'Judges panel at AI Pitch Night event',
         caption: 'Expert judges panel evaluating AI startup pitches'
       },
       {
-        src: '/ai-pitch-night-feb-25-2026/WhatsApp Image 2026-02-26 at 11.21.30.jpeg',
+        src: '/ai-pitch-night-feb-25-2026/ai_pitch_night7.jpeg',
         alt: 'AI Pitch Night networking and presentations',
         caption: 'Interactive session with AI founders and industry experts'
       },
       {
-        src: '/ai-pitch-night-feb-25-2026/WhatsApp Image 2026-02-26 at 11.22.17.jpeg',
+        src: '/ai-pitch-night-feb-25-2026/ai_pitch_night8.jpeg',
         alt: 'Concluding moments at AI Pitch Night 2026',
         caption: 'Successful conclusion of AI Pitch Night event'
       },
       {
-        src: '/ai-pitch-night-feb-25-2026/WhatsApp Video 2026-02-26 at 11.22.02.mp4',
+        src: '/ai-pitch-night-feb-25-2026/ai_pitch_night10.mp4',
         alt: 'Video highlights from AI Pitch Night event',
         caption: 'Live moments from the AI Pitch Night presentations and networking',
         type: 'video'
@@ -121,6 +130,9 @@ export const JUDGING_DATA: JudgingOpportunity[] = [
       'Multiple STEM categories and disciplines',
       'Opportunity to mentor young innovators',
       'Supporting STEM education initiatives'
-    ]
+    ],
+    image: '/stem_fair/stem_fair1.png',
+    certificateUrl: 'https://drive.google.com/file/d/1URzsX7m2BINpm6tBgv4tYQbaD0As6uDK/view',
+    docsUrl: 'https://drive.google.com/drive/folders/1uNrs7oblXNGap33bO2u1kSuTbbRSz4zj'
   },
 ]

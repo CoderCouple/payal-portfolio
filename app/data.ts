@@ -182,6 +182,10 @@ export const SOCIAL_LINKS: SocialLink[] = [
     link: 'https://www.linkedin.com/in/payalfofadiya',
   },
   {
+    label: 'X',
+    link: 'https://x.com/payalfofadiya',
+  },
+  {
     label: 'Substack',
     link: 'https://substack.com/@pfofadiya/posts',
   },
@@ -217,7 +221,44 @@ export const SPEAKING_ENGAGEMENTS: SpeakingEngagement[] = [
     agendaUrl: 'https://drive.google.com/file/d/1iNX2xpNGvvrpJZc5YDVHmubMFoFGIZeX/view',
     eventUrl: 'https://luma.com/qonfx-sf',
     speakerUrl: 'https://www.thetesttribe.com/qonfx/san-francisco/#speakers',
-    eventWebsiteUrl: 'https://www.thetesttribe.com/qonfx/san-francisco/'
+    eventWebsiteUrl: 'https://www.thetesttribe.com/qonfx/san-francisco/',
+    images: [
+      {
+        src: '/qonfx/qonfx_1.jpg',
+        alt: 'QonfX San Francisco 2026 Panel Discussion',
+        type: 'image' as const
+      },
+      {
+        src: '/qonfx/qonfx_2.jpg',
+        alt: 'Speaking at QonfX San Francisco 2026',
+        type: 'image' as const
+      },
+      {
+        src: '/qonfx/qonfx_3.jpg',
+        alt: 'QonfX Panel on AI in SDLC',
+        type: 'image' as const
+      },
+      {
+        src: '/qonfx/qonfx_4.jpg',
+        alt: 'QonfX Conference Atmosphere',
+        type: 'image' as const
+      },
+      {
+        src: '/qonfx/qonfx_5.jpg',
+        alt: 'Engaging with audience at QonfX',
+        type: 'image' as const
+      },
+      {
+        src: '/qonfx/qonfx_6.jpg',
+        alt: 'QonfX San Francisco Event',
+        type: 'image' as const
+      },
+      {
+        src: '/qonfx/qonfx_7.jpg',
+        alt: 'Panel discussion at QonfX 2026',
+        type: 'image' as const
+      }
+    ]
   },
   {
     title: 'GenAI for Software Development - Beyond the Hype, Into the Code',

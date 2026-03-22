@@ -2,7 +2,7 @@
 import { motion } from 'motion/react'
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
-import { ArrowLeftIcon, CalendarIcon, MapPinIcon, ClockIcon, CheckCircleIcon, UsersIcon, StarIcon } from 'lucide-react'
+import { ArrowLeftIcon, CalendarIcon, MapPinIcon, ClockIcon, CheckCircleIcon, UsersIcon, StarIcon, ExternalLinkIcon, AwardIcon, FileTextIcon } from 'lucide-react'
 import { JUDGING_DATA } from '../judging-data'
 import { use } from 'react'
 import { MediaCarousel } from '@/components/ui/media-carousel'
@@ -117,6 +117,26 @@ export default function JudgingDetailPage({ params }: PageProps) {
           </div>
         </motion.header>
 
+        {judging.image && (
+          <motion.section
+            variants={VARIANTS_SECTION}
+            transition={TRANSITION_SECTION}
+            className="mb-12"
+          >
+            <div className="overflow-hidden rounded-2xl bg-zinc-50 dark:bg-zinc-900">
+              <img
+                src={judging.image}
+                alt={`Payal judging at ${judging.event}`}
+                className="w-full h-auto object-contain"
+                onError={(e) => {
+                  // Fallback to placeholder if image doesn't exist
+                  e.currentTarget.src = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='400' viewBox='0 0 800 400'%3E%3Crect width='800' height='400' fill='%23f3f4f6'/%3E%3Ctext x='400' y='200' font-family='Arial' font-size='20' fill='%236b7280' text-anchor='middle'%3EJudging at " + judging.event + "%3C/text%3E%3C/svg%3E"
+                }}
+              />
+            </div>
+          </motion.section>
+        )}
+
         <motion.section
           variants={VARIANTS_SECTION}
           transition={TRANSITION_SECTION}
@@ -206,7 +226,7 @@ export default function JudgingDetailPage({ params }: PageProps) {
         )}
 
 
-        {judging.link && (
+        {(judging.link || judging.certificateUrl || judging.docsUrl) && (
           <motion.section
             variants={VARIANTS_SECTION}
             transition={TRANSITION_SECTION}
@@ -216,15 +236,39 @@ export default function JudgingDetailPage({ params }: PageProps) {
               Event Information
             </h3>
             <div className="flex flex-wrap gap-4">
-              <a
-                href={judging.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 rounded-lg bg-blue-600 px-6 py-3 font-medium text-white hover:bg-blue-700 transition-colors"
-              >
-                <UsersIcon className="h-5 w-5" />
-                View Event Details
-              </a>
+              {judging.link && (
+                <a
+                  href={judging.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 rounded-lg bg-blue-600 px-6 py-3 font-medium text-white hover:bg-blue-700 transition-colors"
+                >
+                  <ExternalLinkIcon className="h-5 w-5" />
+                  View Event Details
+                </a>
+              )}
+              {judging.certificateUrl && (
+                <a
+                  href={judging.certificateUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 rounded-lg bg-emerald-600 px-6 py-3 font-medium text-white hover:bg-emerald-700 transition-colors"
+                >
+                  <AwardIcon className="h-5 w-5" />
+                  Certificate of Appreciation
+                </a>
+              )}
+              {judging.docsUrl && (
+                <a
+                  href={judging.docsUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 rounded-lg bg-purple-600 px-6 py-3 font-medium text-white hover:bg-purple-700 transition-colors"
+                >
+                  <FileTextIcon className="h-5 w-5" />
+                  Docs
+                </a>
+              )}
             </div>
           </motion.section>
         )}
