@@ -193,6 +193,27 @@ export const SOCIAL_LINKS: SocialLink[] = [
 
 export const MEDIA_PUBLICATIONS: MediaPublication[] = [
   {
+    title: 'Developing Adaptive Context Compression Techniques for Large Language Models (LLMs) in Long-Running Interactions',
+    publication: 'ArXiv',
+    date: 'March 2026',
+    link: 'https://arxiv.org/pdf/2603.29193',
+    id: 'media-2',
+  },
+  {
+    title: 'Multi-Layered Memory Architectures for LLM Agents: An Experimental Evaluation of Long-Term Context Retention',
+    publication: 'ArXiv',
+    date: 'March 2026',
+    link: 'https://arxiv.org/pdf/2603.29194',
+    id: 'media-4',
+  },
+  {
+    title: 'Novel Memory Forgetting Techniques for Autonomous AI Agents: Balancing Relevance and Efficiency',
+    publication: 'ArXiv',
+    date: 'April 2026',
+    link: 'https://arxiv.org/pdf/2604.02280',
+    id: 'media-3',
+  },
+  {
     title: 'Early approaches in computer vision object detection and 3D reconstruction',
     publication: 'IRAJ International Journal',
     date: 'Jan 2014',
