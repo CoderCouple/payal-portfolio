@@ -334,6 +334,14 @@ export const BOOKS: Book[] = [
 
 export const NEWS_PUBLICATIONS: NewsPublication[] = [
   {
+    title: 'Future of Tech Hiring: From The Lens of AI Startups Founders',
+    publication: 'Street Insider',
+    date: 'December 2024',
+    type: 'feature',
+    link: 'https://www.streetinsider.com/Globe+PR+Wire/Future+of+Tech+Hiring%3A+From+The+Lens+of+AI+Startups+Founders/26236692.html',
+    id: 'news-2',
+  },
+  {
     title: 'Fulloop Highlights Institutional Shift Toward AI Infrastructure Investment',
     publication: 'Business Insider',
     date: 'November 2024',
