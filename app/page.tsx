@@ -145,6 +145,83 @@ function MagneticSocialLink({
   )
 }
 
+const JSON_LD = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'Person',
+      '@id': 'https://fofadiyapayal.com/#person',
+      name: 'Payal Fofadiya',
+      givenName: 'Payal',
+      familyName: 'Fofadiya',
+      url: 'https://fofadiyapayal.com',
+      image: 'https://fofadiyapayal.com/payal-head-shot.png',
+      jobTitle: 'Engineering Manager, Agent Platform',
+      description:
+        'AI thought leader, engineer, and computer scientist. Engineering Manager of LinkedIn\'s Agent Platform and Founder & CEO of Fulloop AI.',
+      email: 'mailto:fofadiyapayal@gmail.com',
+      sameAs: [
+        'https://github.com/payalto',
+        'https://www.linkedin.com/in/payalfofadiya',
+        'https://x.com/payalfofadiya',
+        'https://substack.com/@pfofadiya',
+        'https://pfofadiya.substack.com',
+      ],
+      worksFor: {
+        '@type': 'Organization',
+        name: 'LinkedIn',
+        url: 'https://linkedin.com',
+      },
+      alumniOf: [
+        {
+          '@type': 'CollegeOrUniversity',
+          name: 'Carnegie Mellon University',
+          url: 'https://www.cmu.edu',
+        },
+        {
+          '@type': 'CollegeOrUniversity',
+          name: 'University of Mumbai',
+        },
+      ],
+      knowsAbout: [
+        'Artificial Intelligence',
+        'AI Agents',
+        'Large Language Models',
+        'Machine Learning',
+        'AI Memory Systems',
+        'Context Engineering',
+        'Agent Platforms',
+        'Enterprise AI',
+        'Software Engineering',
+        'Computer Science',
+      ],
+      address: {
+        '@type': 'PostalAddress',
+        addressLocality: 'San Francisco Bay Area',
+        addressRegion: 'CA',
+        addressCountry: 'US',
+      },
+    },
+    {
+      '@type': 'WebSite',
+      '@id': 'https://fofadiyapayal.com/#website',
+      url: 'https://fofadiyapayal.com',
+      name: 'Payal Fofadiya',
+      description:
+        'Personal site of Payal Fofadiya — AI thought leader, engineer, and computer scientist.',
+      publisher: { '@id': 'https://fofadiyapayal.com/#person' },
+      inLanguage: 'en-US',
+    },
+    {
+      '@type': 'ProfilePage',
+      '@id': 'https://fofadiyapayal.com/#profile',
+      url: 'https://fofadiyapayal.com',
+      mainEntity: { '@id': 'https://fofadiyapayal.com/#person' },
+      isPartOf: { '@id': 'https://fofadiyapayal.com/#website' },
+    },
+  ],
+}
+
 export default function Personal() {
   return (
     <motion.main
@@ -153,6 +230,10 @@ export default function Personal() {
       initial="hidden"
       animate="visible"
     >
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(JSON_LD) }}
+      />
 
       <motion.section
         variants={VARIANTS_SECTION}
@@ -163,15 +244,15 @@ export default function Personal() {
             Bio
           </p>
           <p className="text-zinc-600 dark:text-zinc-400 mb-4">
-            Visionary founder and AI thought leader architecting the future of enterprise LLM platforms. 
-            Currently spearheading LinkedIn's revolutionary Agent Platform—the industry's most advanced 
-            infrastructure for long-running, tool-using AI agents with memory and orchestration capabilities.
+            AI thought leader, engineer, and computer scientist based in the San Francisco Bay Area.
+            Engineering Manager of <strong className="font-medium text-zinc-900 dark:text-zinc-100">LinkedIn&rsquo;s Agent Platform</strong>{' '}
+            — the enterprise infrastructure powering long-running, tool-using AI agents with memory and orchestration.
           </p>
           <p className="text-zinc-600 dark:text-zinc-400">
-            As Founder & CEO of Fulloop AI, built groundbreaking LLM-powered technical interview agents 
-            that are transforming how companies evaluate talent. Former engineering leader across Meta, 
-            Snap, and Uber, with a proven track record of scaling teams and delivering AI innovations 
-            that impact millions of users globally.
+            Founder &amp; CEO of <strong className="font-medium text-zinc-900 dark:text-zinc-100">Fulloop AI</strong>,
+            building LLM-powered technical interview agents that are reshaping how companies evaluate talent.
+            Previously Staff Engineer at Snap, EM at Uber, and Software Engineer at Meta. I write and speak
+            on AI agents, LLM memory systems, and context engineering.
           </p>
         </div>
       </motion.section>

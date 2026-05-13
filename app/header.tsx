@@ -86,22 +86,22 @@ export function Header() {
             Payal Fofadiya
           </h1>
           <p className="mb-6 text-xl text-zinc-600 dark:text-zinc-400 font-medium">
-            Ex-Founder, Pioneering AI Agent Systems at Enterprise Scale
+            AI Thought Leader · Engineer · Computer Scientist
           </p>
           <div className="mb-8 flex flex-wrap items-center justify-center gap-2">
             <span className="rounded-full bg-emerald-100 px-4 py-2 text-sm font-medium text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-300">
-              🚀 AI Pioneer
+              EM @ LinkedIn Agent Platform
             </span>
             <span className="rounded-full bg-blue-100 px-4 py-2 text-sm font-medium text-blue-700 dark:bg-blue-900/30 dark:text-blue-300">
-              💡 Founder
+              Founder &amp; CEO @ Fulloop AI
             </span>
             <span className="rounded-full bg-purple-100 px-4 py-2 text-sm font-medium text-purple-700 dark:bg-purple-900/30 dark:text-purple-300">
-              🏗️ Platform Builder
+              ex-Meta · Snap · Uber
             </span>
           </div>
           <p className="mx-auto max-w-4xl text-xl text-zinc-600 dark:text-zinc-400 leading-relaxed">
-            From enterprise LLM platforms at LinkedIn to revolutionary interview agents at Fulloop AI—
-            building the infrastructure that powers tomorrow's intelligent systems.
+            Engineer and computer scientist in the San Francisco Bay Area, building at the frontier of
+            AI agents, LLM memory systems, and enterprise-scale machine learning.
           </p>
         </section>
       )}

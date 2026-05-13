@@ -12,16 +12,86 @@ export const viewport: Viewport = {
   themeColor: '#ffffff',
 }
 
+const SITE_URL = 'https://fofadiyapayal.com'
+const SITE_NAME = 'Payal Fofadiya'
+const SITE_DESCRIPTION =
+  'Payal Fofadiya — AI thought leader, engineer, and computer scientist. Engineering Manager of LinkedIn\'s Agent Platform and Founder & CEO of Fulloop AI. Writing, speaking, and building at the frontier of AI agents, LLM memory systems, and enterprise-scale machine learning.'
+
 export const metadata: Metadata = {
-  metadataBase: new URL('https://fofadiya.com/'),
+  metadataBase: new URL(SITE_URL),
   alternates: {
-    canonical: '/'
+    canonical: '/',
   },
   title: {
-    default: 'Payal Fofadiya - AI Thought Leader & Founder',
-    template: '%s | Payal Fofadiya'
+    default: 'Payal Fofadiya — AI Thought Leader, Engineer, Computer Scientist',
+    template: '%s | Payal Fofadiya',
   },
-  description:  'Visionary AI founder and thought leader architecting enterprise LLM platforms. Leading LinkedIn\'s Agent Platform, Founder & CEO of Fulloop AI, former engineering leader at Meta, Snap, and Uber.',
+  description: SITE_DESCRIPTION,
+  applicationName: SITE_NAME,
+  authors: [{ name: 'Payal Fofadiya', url: SITE_URL }],
+  creator: 'Payal Fofadiya',
+  publisher: 'Payal Fofadiya',
+  category: 'technology',
+  keywords: [
+    'Payal Fofadiya',
+    'AI thought leader',
+    'AI engineer',
+    'computer scientist',
+    'artificial intelligence',
+    'AI agents',
+    'LLM',
+    'large language models',
+    'machine learning',
+    'enterprise AI',
+    'AI agent platform',
+    'agent orchestration',
+    'AI memory systems',
+    'context engineering',
+    'software engineering',
+    'engineering manager',
+    'LinkedIn Agent Platform',
+    'Fulloop AI',
+    'AI startup founder',
+    'women in AI',
+    'San Francisco Bay Area',
+    'Carnegie Mellon',
+    'payalfofadiya',
+  ],
+  openGraph: {
+    type: 'profile',
+    locale: 'en_US',
+    url: SITE_URL,
+    siteName: SITE_NAME,
+    title: 'Payal Fofadiya — AI Thought Leader, Engineer, Computer Scientist',
+    description: SITE_DESCRIPTION,
+    firstName: 'Payal',
+    lastName: 'Fofadiya',
+    username: 'payalfofadiya',
+    gender: 'female',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Payal Fofadiya — AI Thought Leader, Engineer, Computer Scientist',
+    description: SITE_DESCRIPTION,
+    creator: '@payalfofadiya',
+    site: '@payalfofadiya',
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+      'max-video-preview': -1,
+    },
+  },
+  verification: {
+    // Drop your token from Google Search Console here when you set it up:
+    // google: 'xxxxxxxxxxxxxxxx',
+    // bing: 'xxxxxxxxxxxxxxxx',
+  },
 };
 
 const geist = Geist({
